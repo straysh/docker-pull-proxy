@@ -1,1 +1,1 @@
-grafana/grafana:10.1.10 registry.cn-hangzhou.aliyuncs.com/straysh/grafana/grafana:10.1.10
+grafana/grafana:10.1.10 registry.cn-hangzhou.aliyuncs.com/straysh/grafana:10.1.10
