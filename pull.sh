@@ -6,6 +6,7 @@
 
 arch=$(cat trigger.txt | awk '$1=$1' | awk '{print $3} ' )
 arch=${arch-:amd64}
+echo "arch=${arch}"
 
 # 不指定 cpu 架构
 echo "docker pull --platform=${arch} $1"
