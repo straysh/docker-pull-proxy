@@ -12,7 +12,6 @@ echo "arch=${arch}"
 
 # 不指定 cpu 架构
 echo "docker pull --platform=${arch} ${image_src}"
-exit 0
 docker pull --platform=${arch} "${image_src}"
 
 #指定 cpu 架构
