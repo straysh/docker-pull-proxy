@@ -4,12 +4,13 @@
 # docker image inspect homeassistant/home-assistant:2024.6  | grep Architectur
 # "Architecture": "arm64",
 
-arch=$(cat trigger.txt | awk '$1=$1' | awk '{print $3}' )
-arch=${arch-:amd64}
+arch=$(cat trigger.txt | awk '$1=$1' | awk '{print $3}')
+arch=${arch:-amd64}
 echo "arch=${arch}"
 
 # 不指定 cpu 架构
 echo "docker pull --platform=${arch} $1"
+exit 0
 docker pull --platform=${arch} $1
 
 #指定 cpu 架构
