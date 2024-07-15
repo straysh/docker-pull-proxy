@@ -1,32 +1,42 @@
-# docker pull
-# 如果需要特定架构镜像可以手动指定  --platform linux/arm64 , linux/amd64 , linux/arm/v7 等信息
-# 查看当前镜像架构信息
-# docker image inspect homeassistant/home-assistant:2024.6  | grep Architectur
-# "Architecture": "arm64",
+#!/usr/bin/env bash
+# trigger.txt 行格式：原始镜像地址（不带域名） 目标镜像地址（带阿里云镜像域名+个人空间名称+新镜像名称） 架构
+# 可以定义多行镜像，逐行解析拉取推送
 
-arch=$(cat trigger.txt | awk '$1=$1' | awk '{print $3}')
-arch=${arch:-amd64}
-echo "arch=${arch}"
-image_src=$(cat trigger.txt | awk '$1=$1' | awk '{print $1}')
-image_dest=$(cat trigger.txt | awk '$1=$1' | awk '{print $2}')
-image_dest="${image_dest}-${arch}"
+docker_pull(){
+  image_src=$1
+  image_dest=$2
+  arch=$3
 
-# 不指定 cpu 架构
-echo "docker pull --platform=${arch} ${image_src}"
-docker pull --platform=${arch} "${image_src}"
+  if [[ "${DEBUG,,}" =~ ^(y|yes|1)$ ]];then
+    echo "docker pull --platform=${arch} ${image_src}"
+    echo "docker tag ${image_src} ${image_dest}"
+    echo "docker push ${image_dest}"
+    exit 0
+  fi
 
-#指定 cpu 架构
-# cat trigger.txt |awk '{print "docker pull --platform linux/arm64 " $1} '
-# cat trigger.txt |awk '{print "docker pull --platform linux/arm64 " $1} '| sh
+  echo "docker pull --platform=${arch} ${image_src}"
+  docker pull --platform=${arch} "${image_src}"
 
-# inspect Architectur
-# cat trigger.txt |awk '{print "docker image inspect  " $1 "| grep Architectur" } '
-# cat trigger.txt |awk '{print "docker image inspect  " $1 "| grep Architectur" } '| sh
+  # docker tag
+  echo "docker tag ${image_src} ${image_dest}"
+  docker tag "${image_src}" "${image_dest}"
 
-# docker tag
-echo "docker tag ${image_src} ${image_dest}"
-docker tag "${image_src}" "${image_dest}"
+  # docker push
+  echo "docker push ${image_dest}"
+  docker push "${image_dest}"
+}
 
-# docker push
-echo "docker push ${image_dest}"
-docker push "${image_dest}"
+
+while IFS= read -r line || [[ -n "$line" ]]; do
+  if [[ -n "$line" ]];then
+    echo "raw line:$line"
+    arch=$(echo "$line" | awk '$1=$1' | awk '{print $3}')
+    arch=${arch:-amd64}
+    image_src=$(echo "$line" | awk '$1=$1' | awk '{print $1}')
+    image_dest=$(echo "$line" | awk '$1=$1' | awk '{print $2}')
+    image_dest="${image_dest}-${arch}"
+    echo "new line:${image_src} ${image_dest} ${arch}"
+    docker_pull "${image_src}" "${image_dest}" "${arch}"
+  fi
+done < trigger.txt
+
