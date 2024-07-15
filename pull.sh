@@ -4,9 +4,12 @@
 # docker image inspect homeassistant/home-assistant:2024.6  | grep Architectur
 # "Architecture": "arm64",
 
+arch=$(cat trigger.txt | awk '$1=$1' | awk '{print $3} ' )
+arch=${arch-:amd64}
+
 # 不指定 cpu 架构
-cat trigger.txt |awk '{print "docker pull " $1} '
-cat trigger.txt |awk '{print "docker pull " $1} '| sh
+echo "docker pull --platform=${arch} $1"
+docker pull --platform=${arch} $1
 
 #指定 cpu 架构
 # cat trigger.txt |awk '{print "docker pull --platform linux/arm64 " $1} '
@@ -17,9 +20,9 @@ cat trigger.txt |awk '{print "docker pull " $1} '| sh
 # cat trigger.txt |awk '{print "docker image inspect  " $1 "| grep Architectur" } '| sh
 
 # docker tag
-cat trigger.txt |awk '{print "docker tag "$1 " " $2} '
-cat trigger.txt |awk '{print "docker tag "$1 " " $2} '| sh
+echo "docker tag $1 $2"
+docker tag $1 $2
 
 # docker push
-cat trigger.txt |awk '{print "docker push " $2} '
-cat trigger.txt |awk '{print "docker push " $2} '| sh
+echo "docker push $2"
+docker push $2
