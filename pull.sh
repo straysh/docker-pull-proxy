@@ -4,7 +4,7 @@
 # docker image inspect homeassistant/home-assistant:2024.6  | grep Architectur
 # "Architecture": "arm64",
 
-arch=$(cat trigger.txt | awk '$1=$1' | awk '{print $3} ' )
+arch=$(cat trigger.txt | awk '$1=$1' | awk '{print $3}' )
 arch=${arch-:amd64}
 echo "arch=${arch}"
 
