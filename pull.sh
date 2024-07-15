@@ -6,9 +6,10 @@
 
 arch=$(cat trigger.txt | awk '$1=$1' | awk '{print $3}')
 arch=${arch:-amd64}
+echo "arch=${arch}"
 image_src=$(cat trigger.txt | awk '$1=$1' | awk '{print $1}')
 image_dest=$(cat trigger.txt | awk '$1=$1' | awk '{print $2}')
-echo "arch=${arch}"
+image_dest="${image_dest}-${arch}"
 
 # 不指定 cpu 架构
 echo "docker pull --platform=${arch} ${image_src}"
