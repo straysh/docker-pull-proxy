@@ -6,12 +6,14 @@
 
 arch=$(cat trigger.txt | awk '$1=$1' | awk '{print $3}')
 arch=${arch:-amd64}
+image_src=$(cat trigger.txt | awk '$1=$1' | awk '{print $1}')
+image_dest=$(cat trigger.txt | awk '$1=$1' | awk '{print $2}')
 echo "arch=${arch}"
 
 # 不指定 cpu 架构
-echo "docker pull --platform=${arch} $1"
+echo "docker pull --platform=${arch} ${image_src}"
 exit 0
-docker pull --platform=${arch} $1
+docker pull --platform=${arch} "${image_src}"
 
 #指定 cpu 架构
 # cat trigger.txt |awk '{print "docker pull --platform linux/arm64 " $1} '
@@ -22,9 +24,9 @@ docker pull --platform=${arch} $1
 # cat trigger.txt |awk '{print "docker image inspect  " $1 "| grep Architectur" } '| sh
 
 # docker tag
-echo "docker tag $1 $2"
-docker tag $1 $2
+echo "docker tag ${image_src} ${image_dest}"
+docker tag "${image_src}" "${image_dest}"
 
 # docker push
-echo "docker push $2"
-docker push $2
+echo "docker push ${image_dest}"
+docker push "${image_dest}"
