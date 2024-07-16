@@ -1,1 +1,3 @@
 postgres:12.18 registry.cn-hangzhou.aliyuncs.com/straysh/postgres:12.18 amd64
+postgres:12.18 registry.cn-hangzhou.aliyuncs.com/straysh/postgres:12.18 arm64
+postgres:12.18 registry.cn-hangzhou.aliyuncs.com/straysh/postgres:12.18 mips64le
