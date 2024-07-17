@@ -1,3 +1,4 @@
-postgres:16.2-bullseye registry.cn-hangzhou.aliyuncs.com/straysh/postgres:16.2-bullseye amd64
-postgres:16.2-bullseye registry.cn-hangzhou.aliyuncs.com/straysh/postgres:16.2-bullseye arm64
-postgres:16.2-bullseye registry.cn-hangzhou.aliyuncs.com/straysh/postgres:16.2-bullseye mips64le
+nginx/nginx-ingress:3.6.1-alpine registry.cn-hangzhou.aliyuncs.com/straysh/nginx-ingress:3.6.1-alpine amd64
+nginx/nginx-ingress:3.6.1-alpine registry.cn-hangzhou.aliyuncs.com/straysh/nginx-ingress:3.6.1-alpine arm64
+nginx/nginx-ingress:3.6.1 registry.cn-hangzhou.aliyuncs.com/straysh/nginx-ingress:3.6.1 amd64
+nginx/nginx-ingress:3.6.1 registry.cn-hangzhou.aliyuncs.com/straysh/nginx-ingress:3.6.1 arm64
