@@ -1,4 +1,2 @@
-nginx/nginx-ingress:3.6.1-alpine registry.cn-hangzhou.aliyuncs.com/straysh/nginx-ingress:3.6.1-alpine amd64
-nginx/nginx-ingress:3.6.1-alpine registry.cn-hangzhou.aliyuncs.com/straysh/nginx-ingress:3.6.1-alpine arm64
-nginx/nginx-ingress:3.6.1 registry.cn-hangzhou.aliyuncs.com/straysh/nginx-ingress:3.6.1 amd64
-nginx/nginx-ingress:3.6.1 registry.cn-hangzhou.aliyuncs.com/straysh/nginx-ingress:3.6.1 arm64
+clickhouse/clickhouse-server:latest registry.cn-hangzhou.aliyuncs.com/straysh/clickhouse-server:latest amd64
+clickhouse/clickhouse-server:latest registry.cn-hangzhou.aliyuncs.com/straysh/clickhouse-server:latest arm64
