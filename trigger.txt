@@ -1,2 +1,1 @@
-clickhouse/clickhouse-server:latest registry.cn-hangzhou.aliyuncs.com/straysh/clickhouse-server:latest amd64
-clickhouse/clickhouse-server:latest registry.cn-hangzhou.aliyuncs.com/straysh/clickhouse-server:latest arm64
+ruby:3.3.4-bullseye registry.cn-hangzhou.aliyuncs.com/straysh/ruby:3.3.4-bullseye amd64
