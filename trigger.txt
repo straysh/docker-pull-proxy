@@ -1,1 +1,1 @@
-ruby:3.3.4-bullseye registry.cn-hangzhou.aliyuncs.com/straysh/ruby:3.3.4-bullseye amd64
+erichough/nfs-server:2.2.1 registry.cn-hangzhou.aliyuncs.com/straysh/erichough-nfs-server:2.2.1 amd64
