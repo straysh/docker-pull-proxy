@@ -1,7 +1,1 @@
-mysql:8.3 registry.cn-hangzhou.aliyuncs.com/straysh/mysql:8.3 amd64
-acore/ac-wotlk-db-import:master registry.cn-hangzhou.aliyuncs.com/straysh/acore_ac-wotlk-db-import:master amd64
-acore/ac-wotlk-worldserver:master registry.cn-hangzhou.aliyuncs.com/straysh/acore_ac-wotlk-worldserver:master amd64
-acore/ac-wotlk-authserver:master registry.cn-hangzhou.aliyuncs.com/straysh/acore_ac-wotlk-authserver:master amd64
-acore/ac-wotlk-client-data:master registry.cn-hangzhou.aliyuncs.com/straysh/acore_ac-wotlk-client-data:master amd64
-acore/ac-wotlk-tools:master registry.cn-hangzhou.aliyuncs.com/straysh/acore_ac-wotlk-tools:master amd64
-acore/ac-wotlk-dev-server:master registry.cn-hangzhou.aliyuncs.com/straysh/acore_ac-wotlk-dev-server:master amd64
+ubuntu:22.04 registry.cn-hangzhou.aliyuncs.com/straysh/ubuntu:22.04 amd64
