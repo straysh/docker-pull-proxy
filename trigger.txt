@@ -1,1 +1,2 @@
-ubuntu:22.04 registry.cn-hangzhou.aliyuncs.com/straysh/ubuntu:22.04 amd64
+goreleaser/nfpm:latest registry.cn-hangzhou.aliyuncs.com/straysh/goreleaser_nfpm:latest amd64
+goreleaser/nfpm:latest registry.cn-hangzhou.aliyuncs.com/straysh/goreleaser_nfpm:latest arm64
