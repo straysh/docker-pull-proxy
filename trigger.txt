@@ -1,2 +1,1 @@
-goreleaser/nfpm:latest registry.cn-hangzhou.aliyuncs.com/straysh/goreleaser_nfpm:latest amd64
-goreleaser/nfpm:latest registry.cn-hangzhou.aliyuncs.com/straysh/goreleaser_nfpm:latest arm64
+photoprism/photoprism:240915 registry.cn-hangzhou.aliyuncs.com/straysh/photoprism:240915 amd64
